@@ -38,7 +38,16 @@ const IndexPage = () => {
   <Layout>
     <SEO title="Home" />
     <h1>Art directed image example</h1>
-    <Img fluid={sources} />
+    <p>The following image is art directed, using the following config:</p>
+    <ul>
+      <li><code>(max-width: 599px)</code>: image is https://via.placeholder.com/600x200</li>
+      <li><code>(min-width: 600px)</code>: image is https://via.placeholder.com/1000x200</li>
+      <li><code>(min-width: 900px)</code>: image is https://via.placeholder.com/1400x200</li>
+    </ul>
+    <div style={{marginBottom: '1rem'}}>
+      <Img fluid={sources} />
+    </div>
+    <p>At large screen sizes (<code>min-width: 900px</code>), we should expect the 1400x200 image to show, but instead the 1000x200 image is shown.</p>
   </Layout>
 )}
 

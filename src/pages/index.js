@@ -1,21 +1,45 @@
 import React from "react"
-import { Link } from "gatsby"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
+const IndexPage = () => {
+  const smallImage = {
+    aspectRatio: 3,
+    src: "https://via.placeholder.com/600x200",
+  };
+
+  const mediumImage = {
+    aspectRatio: 5,
+    src: "https://via.placeholder.com/1000x200",
+  };
+
+  const largeImage = {
+    aspectRatio: 7,
+    src: "https://via.placeholder.com/1400x200",
+  };
+
+  const sources = [
+    {
+      ...smallImage,
+      media: `(max-width: 599px)`,
+    },
+    {
+      ...mediumImage,
+      media: `(min-width: 600px)`,
+    },
+    {
+      ...largeImage,
+      media: `(min-width: 900px)`,
+    },
+  ];
+  return (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    <h1>Art directed image example</h1>
+    <Img fluid={sources} />
   </Layout>
-)
+)}
 
 export default IndexPage
